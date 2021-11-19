@@ -1,31 +1,21 @@
-package com.biyang.Collection_;
+package com.biyang.Collection_.List;
+
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.List;
 
-/**
- *
- */
-
-public class CollectionIterator {
+public class ListExercise {
     public static void main(String[] args) {
-        Collection<Book> col = new ArrayList<>();
-        col.add(new Book("三国演义","曹雪芹",10));
-        col.add(new Book("三国演义","曹雪芹",10));
-        col.add(new Book("三国演义","曹雪芹",10));
-        System.out.println("list="+col);
-/**
- * 当退出while循环后，如今迭代器已经指向了最后一个元素，如果继续会出现一场
- * 如果需要再次进行遍历，需要重置迭代器
- */
-        Iterator iterator = col.iterator();
-        while (iterator.hasNext()){
-            System.out.println(iterator.next());
+        List<Book> list = new ArrayList();
+        list.add(new Book("红楼梦","曹雪芹",100));
+        list.add(new Book("西游记","吴承恩",10));
+        list.add(new Book("水浒传","施耐庵",9));
+        list.add(new Book("三国演义","罗贯中",80));
+        //使用Lambda表达式进行排序
+        list.sort((o1,o2)-> o1.getTime()-o2.getTime());
+        for (Book book : list) {
+            System.out.println("名称："+book.getName()+"价格： "+book.getTime()+"作者："+book.getAuthor());
         }
-        System.out.println("----第二次遍历----");
-        iterator = col.iterator();
-
 
     }
 }
